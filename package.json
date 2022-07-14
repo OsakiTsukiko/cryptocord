@@ -1,0 +1,44 @@
+{
+  "name": "custom-electron-template",
+  "version": "0.0.1",
+  "description": "NONE :P",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OsakiTsukiko/custom-electron-template.git"
+  },
+  "author": "OsakiTsukiko <osakitsukiko.mail@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OsakiTsukiko/custom-electron-template/issues"
+  },
+  "homepage": "https://github.com/OsakiTsukiko/custom-electron-template#readme",
+  "devDependencies": {
+    "electron": "^13.6.9",
+    "electron-builder": "^22.11.7"
+  },
+  "build": {
+    "appId": "com.osakitsukiko.customelectrontemplate",
+    "productName": "Custom Electron Template",
+    "directories": {
+      "output": "build/out"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "deb"
+    },
+    "deb": {},
+    "nsis": {
+      "installerIcon": "build/assets/icon.ico",
+      "uninstallerIcon": "build/assets/icon.ico",
+      "uninstallDisplayName": "Uninstaller",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
