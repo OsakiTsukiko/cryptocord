@@ -1,0 +1,22 @@
+.check-box {
+    box-sizing: border-box;
+    transition: .175s;
+    cursor: pointer;
+    border-radius: 5px;
+    
+    &:hover {
+        border: 5px solid $accent_bg;
+        background: $accent_bg;
+    }
+}
+
+.ch-box-unchecked {
+    border: 5px solid $base_darker_2_bg;
+    background: transparent;
+}
+
+.ch-box-checked {
+    border: 5px solid $accent_bg;
+    background: transparent;
+
+}

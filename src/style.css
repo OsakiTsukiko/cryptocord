@@ -1,0 +1,298 @@
+@font-face {
+  font-family: "ASO";
+  src: url("./assets/fonts/Alfa_Slab_One/AlfaSlabOne-Regular.ttf");
+}
+@font-face {
+  font-family: "Anton";
+  src: url("./assets/fonts/Anton/Anton-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("./assets/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("./assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("./assets/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Russo One";
+  src: url("./assets/fonts/Russo_One/RussoOne-Regular.ttf");
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("./assets/fonts/Rubik/Rubik-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./assets/fonts/Ubuntu/Ubuntu-Regular.ttf");
+}
+.check-box {
+  box-sizing: border-box;
+  transition: 0.175s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.check-box:hover {
+  border: 5px solid #5865f2;
+  background: #5865f2;
+}
+
+.ch-box-unchecked {
+  border: 5px solid #202225;
+  background: transparent;
+}
+
+.ch-box-checked {
+  border: 5px solid #5865f2;
+  background: transparent;
+}
+
+.login-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #202225;
+}
+.login-screen .form {
+  width: 700px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: #2f3136;
+  box-sizing: border-box;
+  padding: 50px;
+  border-radius: 5px;
+}
+.login-screen .form .title {
+  width: 100%;
+  text-align: center;
+  font-size: 32px;
+  color: #5865f2;
+  box-sizing: border-box;
+  padding-bottom: 30px;
+  font-family: "Ubuntu";
+  font-weight: 900;
+}
+.login-screen .form .alert {
+  width: 100%;
+  text-align: justify;
+  font-size: 20px;
+  color: #dededf;
+  font-family: "Rubik";
+  box-sizing: border-box;
+  padding-bottom: 30px;
+}
+.login-screen .form .alert special-a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #5865f2;
+  cursor: pointer;
+}
+.login-screen .form .text-inp {
+  width: 100%;
+  height: 30px;
+  font-size: 30px;
+  box-sizing: border-box;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #202225;
+  border: 3px solid transparent;
+  border-radius: 5px;
+  font-family: "Rubik";
+  color: #40444b;
+  transition: 0.125s;
+}
+.login-screen .form .text-inp:focus {
+  border: 3px solid #5865f2;
+  outline: none;
+  color: #5865f2;
+}
+.login-screen .form .text-inp::-moz-placeholder {
+  color: #36393f;
+}
+.login-screen .form .text-inp:-ms-input-placeholder {
+  color: #36393f;
+}
+.login-screen .form .text-inp::placeholder {
+  color: #36393f;
+}
+.login-screen .form .bottom-cont {
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-screen .form .bottom-cont .checks-cont {
+  flex: 1;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+}
+.login-screen .form .bottom-cont .checks-cont .check-box {
+  width: 25px;
+  height: 25px;
+}
+.login-screen .form .bottom-cont .checks-cont label {
+  font-size: 20px;
+  color: #202225;
+  font-family: "Roboto Slab";
+}
+.login-screen .form .bottom-cont .icons-cont {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.login-screen .form .bottom-cont .icons-cont i {
+  color: #40444b;
+  cursor: pointer;
+  transition: 0.175s;
+}
+.login-screen .form .bottom-cont .icons-cont i:hover {
+  color: #5865f2;
+}
+.login-screen .form .bottom-cont .btn-cont {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: right;
+}
+.login-screen .form .bottom-cont .btn-cont .btn {
+  background: #40444b;
+  color: #202225;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: 0.175s;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+  font-size: 25px;
+  font-family: "Rubik";
+  border: 4px solid #2f3136;
+}
+.login-screen .form .bottom-cont .btn-cont .btn:focus {
+  outline: none;
+}
+.login-screen .form .bottom-cont .btn-cont .btn:hover {
+  background: #5865f2;
+  color: #dededf;
+}
+.login-screen .form .bottom-cont .btn-cont .btn:hover:active {
+  outline: none;
+  box-shadow: 0px 0px 0px 3px #5865f2;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.titlebar-cont {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #202225;
+  -webkit-app-region: drag;
+  z-index: 500;
+  margin: 0 auto;
+}
+.titlebar-cont .title-cont {
+  flex: 1;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.titlebar-cont .title-cont .icon {
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+}
+.titlebar-cont .title-cont .icon img {
+  margin: 0px;
+  width: 25px;
+  height: 25px;
+  border-radius: 2.5px;
+}
+.titlebar-cont .title-cont .title {
+  flex: 1;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-family: "Ubuntu";
+  color: #5865f2;
+  box-sizing: border-box;
+  padding: 5px;
+  font-weight: 900;
+}
+.titlebar-cont .buttons-cont {
+  -webkit-app-region: no-drag;
+  box-sizing: border-box;
+  display: flex;
+  padding: 5px;
+}
+.titlebar-cont .buttons-cont .btn {
+  width: 25px;
+  height: 25px;
+  border-radius: 2.5px;
+  margin-left: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.175s;
+}
+.titlebar-cont .buttons-cont .btn:hover {
+  opacity: 1;
+}
+.titlebar-cont .buttons-cont .btn-minimize {
+  background: khaki;
+}
+.titlebar-cont .buttons-cont .btn-maximize {
+  background: #5865f2;
+}
+.titlebar-cont .buttons-cont .btn-close {
+  background: indianred;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  min-height: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+}/*# sourceMappingURL=style.css.map */

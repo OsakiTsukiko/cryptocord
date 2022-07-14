@@ -1,0 +1,78 @@
+.titlebar-cont {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $base_darker_2_bg;
+    -webkit-app-region: drag;
+    z-index: 500;
+    margin: 0 auto;
+
+    .title-cont {
+        flex: 1;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+
+        .icon {
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 5px;
+            width: 35px;
+            height: 35px;
+
+            img {
+                margin: 0px;
+                width: 25px;
+                height: 25px;
+                border-radius: 2.5px;
+            }
+        }
+
+        .title {
+            flex: 1;
+            height: fit-content;
+            font-family: 'Ubuntu';
+            color: $accent_bg;
+            box-sizing: border-box;
+            padding: 5px;
+            font-weight: 900;
+        }
+    }
+
+    .buttons-cont {
+        -webkit-app-region: no-drag;
+        box-sizing: border-box;
+        display: flex;
+        padding: 5px;
+
+        .btn {
+            width: 25px;
+            height: 25px;
+            border-radius: 2.5px;
+            margin-left: 5px;
+            cursor: pointer;
+            opacity: .7;
+            transition: .175s;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .btn-minimize {
+            background: $btn_minimize;
+        }
+
+        .btn-maximize {
+            background: $btn_maximize;
+        }
+
+        .btn-close {
+            background: $btn_close;
+        }
+    }
+}

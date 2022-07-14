@@ -1,1 +1,23 @@
 @import './scss/fonts';
+@import './scss/vars';
+@import './scss/utils';
+@import './scss/screen';
+@import './scss/titlebar';
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    min-height: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
