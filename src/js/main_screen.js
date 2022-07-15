@@ -1,11 +1,16 @@
-const titlebarIcon = document.getElementById("title-icon")
+const { Interaction } = require('discord.js-selfbot-v13');
+const { UIListUser } = require('./utils');
+const titlebarIcon = document.getElementById("title-icon");
+
+const user_list = []
+const UIListUsers_list = []
 
 module.exports = {
     openAvatarURL: function ( url ) {
         window.open(url, "_blank", "width=512,height=512");
     },
 
-    doMainScreen: function ( client ) {
+    doMainScreen: async function ( client ) {
         let avatar = client.user.displayAvatarURL() + "?size=512";
         titlebarIcon.src = avatar;
         let oc_avatar = document.getElementById("oc-owner-icon");
@@ -42,5 +47,33 @@ module.exports = {
                 document.getElementById("oc-owner-tag-state").innerText = activity.state;
             }
         }
+        
+        /* client.guilds.cache.forEach((guild) => {
+            console.log(guild.members) 
+        }) */
+
+        client.users.cache.forEach(async (user) => {
+            if ( user.id != client.user.id ) {
+                let fuser = await client.users.fetch(user.id, { force: true });
+                user_list.push(fuser);
+                console.log(fuser);
+                // console.log(fuser.username, fuser.banner || fuser.accentColor);
+                console.log(fuser.hexAccentColor);
+                console.log(fuser.bannerURL())
+                let ui_user = new UIListUser(
+                    fuser.id, 
+                    fuser.displayAvatarURL() + "?size=512", 
+                    // fuser.tag,
+                    fuser.username, 
+                    fuser.hexAccentColor,
+                    fuser.bannerURL(),
+                    // fuser.presence.status
+                );
+
+                document.getElementById("user-list").innerHTML += ui_user.getHtml;
+                ui_user.update();
+                UIListUsers_list.push(ui_user);
+            }
+        })
     }
 }

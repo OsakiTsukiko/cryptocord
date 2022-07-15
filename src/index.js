@@ -8,7 +8,7 @@ const main_screen = require('./js/main_screen');
 const window_actions = require('./js/window_actions');
 const ls = window.localStorage;
 
-const { Client } = require('discord.js-selfbot-v13');
+const { Client, Interaction } = require('discord.js-selfbot-v13');
 let client = new Client({
   checkUpdate: false
 });
@@ -56,6 +56,6 @@ client.on('ready', async () => {
   console.log(`Logged in as ${client.user.username}`);
   loadScreen("main-screen");
   main_screen.doMainScreen(client);
-  
+
   // console.log(client.users.cache.find(user => user.id === "251313248979124226"))
 })

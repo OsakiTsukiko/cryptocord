@@ -108,6 +108,25 @@
   color: #ffffff;
 }
 
+/* .bl-online {
+    border-left-color: $color_online;
+}
+
+.bl-idle {
+    border-left-color: $color_idle;
+}
+
+.bl-dnd {
+    border-left-color: $color_dnd;
+}
+
+.bl-offline {
+    border-left-color: $color_offline;
+}
+
+.bl-default {
+    border-left-color: $accent_bg;
+} */
 .login-screen {
   display: flex;
   justify-content: center;
@@ -305,6 +324,53 @@
   min-height: 0;
   background: #2f3136;
 }
+.main-screen .left .users .user {
+  width: 300px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  background-size: cover;
+  box-sizing: border-box;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.175s;
+}
+.main-screen .left .users .user:hover {
+  opacity: 1;
+}
+.main-screen .left .users .user .avatar-cont {
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+}
+.main-screen .left .users .user .avatar-cont img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background: #292b2f;
+}
+.main-screen .left .users .user .tag-cont {
+  flex: 1;
+  height: 60px;
+  box-sizing: border-box;
+  padding: 5px;
+  padding-left: 0px;
+}
+.main-screen .left .users .user .tag-cont div {
+  width: 100%;
+  height: 100%;
+  background: rgba(32, 34, 37, 0.3);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto Slab";
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  word-break: break-all;
+}
 .main-screen .left .owner {
   width: 300px;
   height: -webkit-fit-content;
@@ -356,6 +422,7 @@
   font-family: "Roboto Slab";
   color: #dededf;
   display: flex;
+  align-items: center;
 }
 .main-screen .left .owner .info-cont .top #oc-owner-tag-name {
   word-wrap: break-word;
@@ -364,17 +431,21 @@
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  word-break: break-all;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  word-break: break-all;
+  font-weight: 700;
 }
 .main-screen .left .owner .info-cont .top #oc-owner-tag-discriminator {
   font-family: "Roboto Mono";
   box-sizing: border-box;
-  padding-right: 2.5px;
-  padding-left: 2.5px;
+  padding-right: 4px;
+  padding-left: 4px;
   border-radius: 2.5px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .main-screen .left .owner .info-cont .bottom {
   flex: 1;

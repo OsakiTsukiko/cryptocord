@@ -46,6 +46,60 @@ class CheckBoxUtils {
     }
 }
 
+class UIListUser {
+    element;
+
+    id;
+    avatar;
+    tag;
+    color;
+    banner;
+    // status;
+
+    constructor ( id, avatar, tag, color, banner, /* status */ ) {
+        this.id = id;
+        this.avatar = avatar
+        this.tag = tag
+        this.color = color // (accent)
+        this.banner = banner
+        // this.status = status
+    }
+
+    get getHtml () {
+        return `
+        <div class="user" id="user-${this.id}">
+            <div class="avatar-cont">
+                <img id="ua-${this.id}">
+            </div>
+            <div class="tag-cont">
+                <div id="ut-${this.id}"></div>
+            </div>
+        </div>
+        `;
+    }
+
+    update () {
+        if ( this.banner != undefined && this.banner != null && this.banner != "" ) {
+            document.getElementById(`user-${this.id}`).style.background = `url('${this.banner}?size=512')`;
+        } else if ( this.color != undefined && this.color != null && this.color != "" ) {
+            document.getElementById(`user-${this.id}`).style.background = this.color;
+        } else {
+            document.getElementById(`user-${this.id}`).style.background = '#5865f2';
+        }
+
+        document.getElementById(`user-${this.id}`).style.backgroundSize = '100%';
+        document.getElementById(`user-${this.id}`).style.backgroundPosition = 'center';
+        
+        document.getElementById(`ua-${this.id}`).src = this.avatar;
+        document.getElementById(`ut-${this.id}`).innerText = this.tag;
+
+        /* if ( this.status != null || this.status != undefined ) {
+            document.getElementById(`user-${this.id}`).classList.add(`bl-${this.status}`);
+            console.log(this.status)
+        } */
+    }
+}
+
 module.exports = {
     openURL: function (URL) {
         shell.openExternal(URL);
@@ -53,6 +107,7 @@ module.exports = {
 
     CheckBox: CheckBox,
     CheckBoxUtils: CheckBoxUtils,
+    UIListUser: UIListUser,
 
     checkInp: function (element, remove_spaces) {
         let value = element.value;
@@ -72,4 +127,5 @@ module.exports = {
             screen.classList.remove("screen-hidden");
         }
     }
+
 }
