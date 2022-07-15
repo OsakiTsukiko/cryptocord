@@ -4,7 +4,7 @@ class CheckBox {
     element;
 
     get isChecked () {
-        return this.element.getAttribute("checked");
+        return this.element.getAttribute("checked") == "true";
     }
 
     check () {
@@ -20,7 +20,7 @@ class CheckBox {
     }
 
     toggle () {
-        if ( this.isChecked == "true" ) this.uncheck();
+        if ( this.isChecked == true ) this.uncheck();
         else this.check();
     }
 
@@ -48,9 +48,28 @@ class CheckBoxUtils {
 
 module.exports = {
     openURL: function (URL) {
-        shell.openExternal(URL)
+        shell.openExternal(URL);
     },
 
     CheckBox: CheckBox,
-    CheckBoxUtils: CheckBoxUtils
+    CheckBoxUtils: CheckBoxUtils,
+
+    checkInp: function (element, remove_spaces) {
+        let value = element.value;
+        if ( remove_spaces ) value.replaceAll(' ', '');
+        if ( value == undefined || value == "" ) return false;
+        // might add more checks..
+        return true;
+    },
+
+    loadScreen: function ( screen_class_name ) {
+        let screens = document.getElementsByClassName("screen");
+        for ( screen of screens ) {
+            screen.classList.add("screen-hidden");
+        }
+        screens = document.getElementsByClassName(screen_class_name);
+        for ( screen of screens ) {
+            screen.classList.remove("screen-hidden");
+        }
+    }
 }

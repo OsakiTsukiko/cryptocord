@@ -24,14 +24,16 @@
 
     <div class="main">
 
-        <div class="login-screen screen">
+        <div class="loading-screen screen screen-hidden"><h1 id="loading_title"></h1></div>
+
+        <div class="login-screen screen screen-hidden">
             <div class="form">
                 <div class="title">Haruko</div>
                 <div class="alert">
                     &emsp;&emsp;I don't take any responsibility for blocked Discord accounts that used Haruko.<br>
                     &emsp;&emsp;Using this on a user account is prohibited by the <special-a onclick="utils.openURL('https://discord.com/terms')">Discord TOS</special-a> and can lead to the account block. 
                 </div>
-                <input type="text" class="text-inp" placeholder="Discord Token" spellcheck="false">
+                <input id="login_token_inp" type="text" class="text-inp" placeholder="Discord Token" spellcheck="false">
                 <div class="bottom-cont">
                     <div class="checks-cont">
                         <div class="check-box ch-box-unchecked" id="remember_me_check" checked="false"></div>
@@ -41,9 +43,24 @@
                         <i class="fa-solid fa-circle-info"></i>
                     </div>
                     <div class="btn-cont">
-                        <button class="utils-btn">Enter</button>
+                        <button id="login_enter_btn" class="utils-btn" onclick="login()">Enter</button>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="main-screen screen screen-hidden">
+            <div class="left">
+                <div class="users"></div>
+                <div class="owner">
+                    <div class="icon-cont">
+                        <img id="oc-owner-icon">
+                    </div>
+                    <div class="info-cont"></div>
+                </div>
+            </div>
+            <div class="right">
+
             </div>
         </div>
 

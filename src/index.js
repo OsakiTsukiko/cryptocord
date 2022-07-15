@@ -1,40 +1,57 @@
+const { CheckBox, CheckBoxUtils, loadScreen } = require('./js/utils');
 const utils = require('./js/utils');
-const window_actions = require('./js//window_actions');
-const { CheckBox, CheckBoxUtils } = require('./js/utils');
+const more = require('./js/more');
+const main_screen = require('./js/main_screen');
+
+const window_actions = require('./js/window_actions');
 const ls = window.localStorage;
 
-let rememberMe = new CheckBox(document.getElementById("remember_me_check"))
-rememberMe.element.onclick = function () {
-  if ( rememberMe.element.getAttribute("checked") == "true" ) {
-    rememberMe.element.setAttribute("checked", "false");
-    rememberMe.element.classList.remove("ch-box-checked");
-    rememberMe.element.classList.add("ch-box-unchecked");
-  } else {
-    rememberMe.element.setAttribute("checked", "true");
-    rememberMe.element.classList.remove("ch-box-unchecked");
-    rememberMe.element.classList.add("ch-box-checked");
+const { Client } = require('discord.js-selfbot-v13');
+let client = new Client({
+  checkUpdate: false
+});
+// All partials are loaded automatically
+
+window.onload = function () {
+  if ( ls.getItem("token") == undefined || ls.getItem("token") == "" )
+    loadScreen("login-screen");
+  else {
+    loadScreen("loading-screen");
+    client.login(ls.getItem("token")).catch((err) => {
+      console.error("Client Login Err", err);
+      ls.removeItem("token");
+      loadScreen("login-screen");
+    });
   }
 }
 
-// ^^^
-// BRUH
-// Is there a better way, tried lotta stuff
-// nothing seems works
-// even sth like:
-// rememberMe.element.onclick = CheckBox.toggle(rememberMe.element)
-// I even tried making another class for "utils"
-// (left the class is) and doing sth like this:
-// rememberMe.element.onclick = CheckBoxUtils.toggle(rememberMe.element)
+function login () {
+  if ( utils.checkInp(document.getElementById("login_token_inp")) ) {
+    document.getElementById("login_enter_btn").classList.remove("ub-error");
+    utils.loadScreen("loading-screen");
+    let token = document.getElementById("login_token_inp").value;
+    document.getElementById("login_token_inp").value = "";
+    if ( more.rememberMe.isChecked ) {
+      ls.setItem("token", token)
+    }
 
-const { Client } = require('discord.js-selfbot-v13');
-const client = new Client(); // All partials are loaded automatically
+    client.login(token).catch((err) => {
+      console.error("Client Login Err", err);
+      ls.removeItem("token");
+      loadScreen("login-screen");
+    });
+
+    token = undefined;
+
+  } else {
+    document.getElementById("login_enter_btn").classList.add("ub-error");
+  }
+}
+
+// DiscordJS
 
 client.on('ready', async () => {
-  console.log(`${client.user.username} is ready!`);
+  console.log(`Logged in as ${client.user.username}`);
+  loadScreen("main-screen");
+  main_screen.doMainScreen(client);
 })
-
-// client.login('token');
-
-function login () {
-    
-}

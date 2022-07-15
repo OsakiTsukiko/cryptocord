@@ -1,0 +1,54 @@
+.main-screen {
+    display: flex;
+    
+    .left {
+        height: 100%;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+
+        .users {
+            width: 300px;
+            flex: 1;
+            min-height: 0;
+            background: $base_darker_0_bg;
+        }
+
+        .owner {
+            width: 300px;
+            height: fit-content;
+            background: $base_darker_1_bg;
+            display: flex;
+            
+            .icon-cont {
+                box-sizing: border-box;
+                padding: 7.5px;
+                width: fit-content;
+                height: fit-content;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    background: $accent_bg;
+                    border-radius: 5px;
+                    margin: 0px;
+                    margin-bottom: 0px;
+                    cursor: pointer;
+                    box-sizing: border-box;
+                    /* border: 3px solid $base_darker_1_bg;
+                    box-shadow: 0px 0px 0px 3px khaki; */
+                }
+            }
+        }
+    }
+
+    .right {
+        height: 100%;
+        flex: 1;
+        min-width: 0;
+        background: $base_bg;
+    }
+}

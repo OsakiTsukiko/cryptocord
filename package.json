@@ -3,23 +3,18 @@
   "version": "0.0.1",
   "description": "eww, electron?!",
   "main": "main.js",
-
   "scripts": {
     "start": "electron ."
   },
-
   "author": "OsakiTsukiko <osakitsukiko.mail@gmail.com>",
   "license": "MIT",
-
   "dependencies": {
     "discord.js-selfbot-v13": "^2.3.74"
   },
-  
   "devDependencies": {
-    "electron": "^13.6.9",
+    "electron": "^19.0.8",
     "electron-builder": "^22.11.7"
   },
-
   "build": {
     "appId": "com.osakitsukiko.haruko",
     "productName": "Haruko",
