@@ -54,3 +54,28 @@
     background: $btn_close;
     color: $accent_fg;
 }
+
+.bg-online {
+    background: $color_online;
+    color: $base_darker_1_bg
+}
+
+.bg-idle {
+    background: $color_idle;
+    color: $base_darker_1_bg;
+}
+
+.bg-dnd {
+    background: $color_dnd;
+    color: $base_darker_1_bg;
+}
+
+.bg-offline {
+    background: $color_offline;
+    color: $base_darker_1_bg;
+}
+
+.bg-default {
+    background: $accent_bg;
+    color: $accent_fg;
+}

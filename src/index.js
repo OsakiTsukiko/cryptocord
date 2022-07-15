@@ -1,3 +1,5 @@
+const twemoji = require('twemoji');
+
 const { CheckBox, CheckBoxUtils, loadScreen } = require('./js/utils');
 const utils = require('./js/utils');
 const more = require('./js/more');
@@ -54,4 +56,6 @@ client.on('ready', async () => {
   console.log(`Logged in as ${client.user.username}`);
   loadScreen("main-screen");
   main_screen.doMainScreen(client);
+  
+  // console.log(client.users.cache.find(user => user.id === "251313248979124226"))
 })
