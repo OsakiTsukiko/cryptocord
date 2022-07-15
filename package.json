@@ -1,5 +1,5 @@
 {
-  "name": "cryptocord",
+  "name": "haruko",
   "version": "0.0.1",
   "description": "eww, electron?!",
   "main": "main.js",
@@ -21,8 +21,8 @@
   },
 
   "build": {
-    "appId": "com.osakitsukiko.cryptocord",
-    "productName": "CryptoCord",
+    "appId": "com.osakitsukiko.haruko",
+    "productName": "Haruko",
     "directories": {
       "output": "build/out"
     },
