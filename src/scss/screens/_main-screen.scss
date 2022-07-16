@@ -87,7 +87,7 @@
                 overflow-y: auto;
                 max-height: 100%;
 
-                .meme {
+                .empty {
                     width: 100%;
                     height: 100%;
                     display: flex;
@@ -95,6 +95,7 @@
                     align-items: center;
                     font-size: 10px;
                     color: $base_darker_1_fg;
+                    font-family: 'Roboto Mono';
                 }
 
                  /* width */
