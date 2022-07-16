@@ -1,13 +1,53 @@
 const { Interaction } = require('discord.js-selfbot-v13');
+const { session } = require('electron');
 const { UIListUser } = require('./utils');
 const titlebarIcon = document.getElementById("title-icon");
 
-const user_list = []
-const UIListUsers_list = []
+const ls = window.localStorage;
+const session_userlist = [];
 
 module.exports = {
     openAvatarURL: function ( url ) {
         window.open(url, "_blank", "width=512,height=512");
+    },
+
+    refresh: function (query = false) {
+        document.getElementById("user-list").innerHTML = "";
+        for ( idx in session_userlist ) {
+            let user = session_userlist[idx];
+            if ( query != false && query != "" ) 
+                if ( !user.username.toLowerCase().includes(query.toLowerCase()) ) continue;
+
+            let ui_user = new UIListUser(
+                user.id, 
+                user.displayAvatarURL() + "?size=512", 
+                // user.tag,
+                user.username, 
+                user.hexAccentColor,
+                user.bannerURL(),
+            );
+
+            document.getElementById("user-list").innerHTML += ui_user.getHtml;
+            ui_user.update();
+            // UIListUsers_list.push(ui_user);
+        }
+        if ( document.getElementById("user-list").innerHTML == "" ) {
+            document.getElementById("user-list").innerHTML = `<div class="meme"><div id="meme"></div></div>`;
+            document.getElementById("meme").innerText = 
+           `⠀⣞⢽⢪⢣⢣⢣⢫⡺⡵⣝⡮⣗⢷⢽⢽⢽⣮⡷⡽⣜⣜⢮⢺⣜⢷⢽⢝⡽⣝
+            ⠸⡸⠜⠕⠕⠁⢁⢇⢏⢽⢺⣪⡳⡝⣎⣏⢯⢞⡿⣟⣷⣳⢯⡷⣽⢽⢯⣳⣫⠇
+            ⠀⠀⢀⢀⢄⢬⢪⡪⡎⣆⡈⠚⠜⠕⠇⠗⠝⢕⢯⢫⣞⣯⣿⣻⡽⣏⢗⣗⠏⠀
+            ⠀⠪⡪⡪⣪⢪⢺⢸⢢⢓⢆⢤⢀⠀⠀⠀⠀⠈⢊⢞⡾⣿⡯⣏⢮⠷⠁⠀⠀
+            ⠀⠀⠀⠈⠊⠆⡃⠕⢕⢇⢇⢇⢇⢇⢏⢎⢎⢆⢄⠀⢑⣽⣿⢝⠲⠉⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⡿⠂⠠⠀⡇⢇⠕⢈⣀⠀⠁⠡⠣⡣⡫⣂⣿⠯⢪⠰⠂⠀⠀⠀⠀
+            ⠀⠀⠀⠀⡦⡙⡂⢀⢤⢣⠣⡈⣾⡃⠠⠄⠀⡄⢱⣌⣶⢏⢊⠂⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⢝⡲⣜⡮⡏⢎⢌⢂⠙⠢⠐⢀⢘⢵⣽⣿⡿⠁⠁⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠨⣺⡺⡕⡕⡱⡑⡆⡕⡅⡕⡜⡼⢽⡻⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⣼⣳⣫⣾⣵⣗⡵⡱⡡⢣⢑⢕⢜⢕⡝⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⣴⣿⣾⣿⣿⣿⡿⡽⡑⢌⠪⡢⡣⣣⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⡟⡾⣿⢿⢿⢵⣽⣾⣼⣘⢸⢸⣞⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠁⠇⠡⠩⡫⢿⣝⡻⡮⣒⢽⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`;
+        }
     },
 
     doMainScreen: async function ( client ) {
@@ -52,14 +92,19 @@ module.exports = {
             console.log(guild.members) 
         }) */
 
-        client.users.cache.forEach(async (user) => {
+        /* client.users.cache.forEach(async (user) => {
+            console.log("User", user);
             if ( user.id != client.user.id ) {
+                
+                // theese sometimes work, somethimes they dont
+                // discord.js :
+                // i should just make an api wrapper for selfbotting.. :))
                 let fuser = await client.users.fetch(user.id, { force: true });
                 user_list.push(fuser);
-                console.log(fuser);
+                console.log("Fuser", fuser);
                 // console.log(fuser.username, fuser.banner || fuser.accentColor);
-                console.log(fuser.hexAccentColor);
-                console.log(fuser.bannerURL())
+                // console.log("hexAccentColor", fuser.hexAccentColor);
+                // console.log("bannerURL", fuser.bannerURL())
                 let ui_user = new UIListUser(
                     fuser.id, 
                     fuser.displayAvatarURL() + "?size=512", 
@@ -74,6 +119,33 @@ module.exports = {
                 ui_user.update();
                 UIListUsers_list.push(ui_user);
             }
-        })
-    }
+        }) */
+        // ^^ this wont work, cuz:
+        // 1st: discord limits requests,
+        //      (i think... i had issues with 
+        //      pending requests, unreliable)
+        // 2nd: it lists random ppl uve talked about + 
+        //      ppl that are rn in vc in one
+        //      of the srvs u are in.. 
+        //      kinda unconsistant
+
+        if ( ls.getItem('userlist-' + client.user.id) == undefined ) {
+            ls.setItem('userlist-' + client.user.id, JSON.stringify([]));
+        } else {
+            let userlist = JSON.parse(ls.getItem('userlist-' + client.user.id));
+            for ( idx in userlist ) {
+                // console.log(userlist[idx]); // Sould be an ID
+                let uid = userlist[idx];
+                await client.users.fetch(uid, { force: true })
+                .then((user) => {
+                    session_userlist.push(user);
+                }).catch((err) => {
+                    console.error(err);
+                });
+            }
+            module.exports.refresh();
+        }
+    },
+
+    session_userlist: session_userlist
 }

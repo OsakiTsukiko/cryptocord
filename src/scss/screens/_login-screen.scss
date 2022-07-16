@@ -116,6 +116,11 @@
             .btn-cont {
                 width: fit-content;
                 text-align: right;
+
+                button {
+                    position: relative;
+                    right: -4px;
+                }
             }
         }
     }

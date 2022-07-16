@@ -54,7 +54,7 @@ class UIListUser {
     tag;
     color;
     banner;
-    // status;
+    // 300pxstatus;
 
     constructor ( id, avatar, tag, color, banner, /* status */ ) {
         this.id = id;
@@ -126,6 +126,17 @@ module.exports = {
         for ( screen of screens ) {
             screen.classList.remove("screen-hidden");
         }
-    }
+    },
 
+    closePopup: function (popup) {
+        document.getElementById(popup).classList.add('popup-hidden');
+    },
+
+    openAddUserPopup: function () {
+        document.getElementById("add-user-inp").classList.remove("text-inp-error");
+        document.getElementById("add-user-inp").value = "";
+        document.getElementById("add-user-inp").placeholder = document.getElementById("add-user-inp").getAttribute("default-placeholder");
+        document.getElementById("add-user-enter-btn").classList.remove("ub-error");
+        document.getElementById('add-user-popup').classList.remove('popup-hidden');
+    }
 }

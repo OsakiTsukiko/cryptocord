@@ -1,0 +1,91 @@
+.add-user-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .175s;
+
+    .au-main-cont {
+        width: 700px;
+        height: fit-content;
+        box-sizing: border-box;
+        border-radius: 10px;
+        padding: 20px;
+        background: $base_darker_0_bg;
+
+        .close {
+            width: 100%;
+            text-align: right;
+            font-family: 'Roboto Mono';
+            font-size: 20px;
+            color: $base_darker_1_fg;
+            cursor: pointer;
+        }
+
+        .title {
+            width: 100%;
+            text-align: center;
+            font-size: 32px;
+            color: $accent_bg;
+            box-sizing: border-box;
+            font-family: 'Ubuntu';
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .text {
+            width: 100%;
+            font-family: 'Rubik';
+            color: $base_fg;
+            font-size: 20px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .text-inp {
+            width: 100%;
+            height: 30px;
+            font-size: 30px;
+            box-sizing: border-box;
+            padding: 10px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background: $base_darker_2_bg;
+            border: 3px solid transparent;
+            border-radius: 5px;
+            font-family: 'Rubik';
+            color: $base_lighter_0_bg;
+            transition: .125s;
+            margin-bottom: 15px;
+
+            &:focus {
+                border: 3px solid $accent_bg;
+                outline: none;
+                color: $accent_bg;
+            }
+
+            &::placeholder {
+                color: $base_bg;
+            }
+        }
+
+        .text-inp-error {
+            &::placeholder {
+                color: $btn_close;
+            }
+        }
+
+        .btn-cont {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            button {
+                position: relative;
+                right: -4px;
+                top: -4px;
+            }
+        }
+    }
+}
