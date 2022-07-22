@@ -153,6 +153,7 @@ module.exports = {
         document.getElementById("add-user-inp").value = "";
         document.getElementById("add-user-inp").placeholder = document.getElementById("add-user-inp").getAttribute("default-placeholder");
         document.getElementById("add-user-enter-btn").classList.remove("ub-error");
+        document.getElementById("add-user-enter-btn").disabled = false;
         document.getElementById('add-user-popup').classList.remove('popup-hidden');
     }
 }
